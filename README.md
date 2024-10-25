@@ -1,1 +1,0 @@
-# gammaploid.github.io
