@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gammaploid - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #64ffda;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+        }
+        .about-section {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .about-content {
+            max-width: 600px;
+        }
+        .about-content h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .about-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            border: 2px solid var(--text-color);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-color) 10%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover::before {
+            opacity: 0.1;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        .star-icon {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+        #pdf-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.9);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            height: 90%;
+            max-width: 900px;
+        }
+        .close-modal {
+            color: var(--text-color);
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .about-content h1 {
+                font-size: 3rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .social-links svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="about-section">
+            <div class="about-content">
+                <h1>Hassan Almosa</h1>
+                <p>Computer Science and AI student passionate about developing and understanding artificial intelligent systems, and exploring diverse computing domains.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/hassan-4lmosa" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://huggingface.co/spindles" target="_blank" title="Hugging Face">
+                        <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M31.1997 16.0998C31.1997 14.0998 30.5997 12.7998 29.3997 11.9998C28.1997 11.1998 26.3997 10.7998 23.9997 10.7998H16.7997V29.1998H24.5997C26.7997 29.1998 28.5997 28.7998 29.9997 27.9998C31.3997 27.1998 31.9997 25.7998 31.9997 23.7998V16.0998H31.1997ZM28.7997 23.5998C28.7997 24.7998 28.3997 25.5998 27.5997 26.1998C26.7997 26.7998 25.5997 26.9998 23.9997 26.9998H19.1997V12.9998H23.5997C25.1997 12.9998 26.3997 13.1998 27.1997 13.7998C27.9997 14.3998 28.3997 15.1998 28.3997 16.3998V23.5998H28.7997Z" fill="currentColor"/>
+                            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star star-icon"></i>Engineers Without Borders Challenge</h3>
+                        <p>Developing a mangrove erosion control and stabilising structure for the Barron River.</p>
+                        <a href="#" class="btn" onclick="openPDF('https://gammaploid.github.io/Engineers Without Borders Challenge/ِEWB_Challenge_Mangrove_Erosion_Control_System_and_Stabilising_Structure_for_The_Barron_River.pdf')">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star star-icon"></i>ML Board Game Prediction</h3>
+                        <p>Utilizing machine learning techniques to predict board game attributes.</p>
+                        <a href="#" class="btn" onclick="openPDF('https://gammaploid.github.io/Machine Learning Board Game Prediction/Machine_Learning_For_Predicting_Boardgame_Attributes.pdf')">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star star-icon"></i>WasteID</h3>
+                        <p>An innovative approach to waste management and identification, promoting sustainable practices.</p>
+                        <a href="#" class="btn" onclick="openPDF('https://gammaploid.github.io/WasteID/WasteID.pdf')">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star star-icon"></i>CIFAR-10 Image Classification</h3>
+                        <p>Convolutional Neural Network design and evaluation for the CIFAR-10 image dataset.</p>
+                        <a href="#" class="btn" onclick="openPDF('https://gammaploid.github.io/CIFAR-10_Image_Classification.pdf')">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star star-icon"></i>Smart Manufacturing Dashboard</h3>
+                        <p>A web-based platform for monitoring and managing factory operations, developed with full-stack design.</p>
+                        <a href="https://github.com/gammaploid/Group13-UX2030" class="btn" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="pdf-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <embed src="" type="application/pdf" width="100%" height="100%" id="pdf-embed">
+        </div>
+    </div>
+
+    <script>
+        function openPDF(pdfUrl) {
+            document.getElementById('pdf-embed').src = pdfUrl;
+            document.getElementById('pdf-modal').style.display = 'block';
+        }
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('pdf-modal').style.display = 'none';
+        });
+
+        window.onclick = (event) => {
+            if (event.target == document.getElementById('pdf-modal')) {
+                document.getElementById('pdf-modal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
